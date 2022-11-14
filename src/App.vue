@@ -1,26 +1,83 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <MyHead
+     @optionTasks="optionTasks"
+    />
+    <TaskList 
+      :tasks="filteredTask"
+      @remove="removeTask"
+      @completed="completedTask"
+    />
+    <TaskForm @create="createTask"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MyHead from "@/components/UI/MyHead.vue";
+import TaskList from "@/components/TaskList.vue";
+import TaskForm from "@/components/TaskForm.vue";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components: {MyHead, TaskList, TaskForm,},
+  data() {
+    return {
+      tasks: [
+        {id: 1, title: 'Build a modern To do app', status: 'inProgress'},
+        {id: 2, title: 'Workout for 30 miites at the gym', status: 'inProgress'},
+        {id: 3, title: 'Buy groceries(milk, vegetables, fruits, fish)', status: 'inProgress'},
+        {id: 4, title: 'Clean the house and backyard', status: 'inProgress'},
+        {id: 5, title: 'Take the car to the autoshop for an oil change', status: 'inProgress'}
+      ],
+      selectedFilter: 'inProgress',
+    }
+  }, 
+  methods: {  
+    optionTasks(param) { 
+      this.selectedFilter = param;
+      console.log(this.selectedFilter)
+    },
+   // completedTasks() {
+   // this.selectedFilter = 'completed'
+   // },
+   //     @optionTaskInProgress="progressTasks"
+   //     @optionTaskCompleted="completedTasks"
+   //     @optionTaskRemoved="removedTasks"
+    //removedTasks() {
+    //  this.selectedFilter = 'removed'
+    //},
+    //progressTasks() {
+    //  this.selectedFilter = 'inProgress'
+    //},
+    createTask(task) {
+      this.tasks.push(task);
+    },
+    completedTask(task) {
+      this.tasks = this.tasks.map(t => t.id === task.id ? {...task, status: 'completed'} : t)  
+    },
+    removeTask(task) {
+      this.tasks = this.tasks.map(t =>  t.id === task.id  ? { ...task, status: 'removed'} : t)
+    }, 
+  },
+  computed: {
+    filteredTask() {
+      return this.tasks.filter(t => t.status === this.selectedFilter)
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.app {
+  width: 414px;
+  height: 289px;
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 15px;
+  margin-left: 15px;
 }
 </style>
