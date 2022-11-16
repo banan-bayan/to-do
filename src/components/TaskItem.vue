@@ -12,9 +12,7 @@
     > 
       <IconDelete/>
     </button> 
-   
-  </div>
-    
+  </div> 
 </template>
 
 <script>
@@ -31,50 +29,69 @@ export default {
 </script>
 
 <style scoped>
-.b{
-  height: 20px;
-  width: 20px;
-}
+
 .task__title {
   overflow: hidden;
-  margin-left: 16px;
-  max-width: 300px;
   text-overflow: clip;
+  /*
+  border: 1px solid green;
+  */
+  margin-left: 10px;
+  margin-right: 10px;
+  max-width: 970px;
 }
 .task {
-  max-width: 374px;
+  /*
+  max-width: 1122px;
+  width: 1122px;
+  */
+  flex: 0 1 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 23px;
-  width: 374px;
-  margin: 0px 23px 0px 22px; 
-  padding: 8px 0px 8px 10px;
-  border-color: black;
-  border-bottom: 0.4px solid rgba(202, 196, 196, 0.5);;  
+  min-height: 50px;
+  margin: 0px 0px 0px 0px; 
+  padding: 0px 0px 0px 15px;
+  border-bottom: 0.4px solid rgba(202, 196, 196, 0.5);
+  /*
+  border: 1px solid darkred;
+  */
 }
 .task:hover {
   transition: all 0.1s ease 0s; 
   display: flex;
   justify-content: flex-start;
-  width: 374px;
-  margin: 0px 23px 0px 22px;
-  box-shadow: 0 3px 3px 1px rgba(202, 196, 196, 0.7); 
-  border-radius: 0 0 5px 5px;
+
+  /*
+    border-top: 0.4px solid rgba(202, 196, 196, 0.5);
+  width: 1122px;
+  margin: 0px 69px 0px 66px;
+  */
+  margin: 0px 0px 0px 0px;
+  box-shadow: 0 9px 9px 3px rgba(202, 196, 196, 0.7); 
+  border-radius: 0 0 15px 15px;
 }
 .btn {
  background: none;
  border: none;
 }
 .btn-delete {
-  margin-top: 2px;
+  margin-top: 0px;
   margin-left: auto;
+  flex: 0 1 1%;
+  /*
+  border: 1px solid red;
+  */
+  
 }
 .btn-complete{
-  width: 12px;
-  height: 12px;
+  min-width: 36px;
+  min-height: 36px;
   border-radius: 50%;
-  border: 1px solid #CBCBCB;
+  border: 3px solid #CBCBCB;
+  /*
+  border: 1px solid red;
+  */
  }
  .btn-complete:hover {
   background: #4E4E4E;

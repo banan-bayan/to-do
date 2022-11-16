@@ -9,22 +9,17 @@
       @completed="$emit('completed', task)"
     /> 
   </div>
-  <p 
-    class="task-list-is-empty" 
-    v-else
-  > 
-    Task list is currently empty
-  </p>      
+  <p class="task-list-is-empty" v-else> Task list is currently empty </p>      
 </template>
 
 <script>
-  import PostItem from "@/components/TaskItem.vue"
-  export default {
-    components: {PostItem},
-    props: {
-      tasks: {
-        type: Array,
-        required: true,
+import PostItem from "@/components/TaskItem.vue"
+export default {
+  components: {PostItem},
+  props: {
+    tasks: {
+      type: Array,
+      required: true,
     }
   }
 }
@@ -37,7 +32,7 @@
  }
  .task-list-is-empty {
   font-weight: 600;
-  font-size: 13px;
+  font-size: 39px;
   margin: 7px 23px 0px 102px;
   padding: 7px 0px 0px 10px;
  }

@@ -1,21 +1,21 @@
 <template>
-  <input 
+  <input
     class="input" 
     type="text" 
     :value="modelValue" 
     @input="updateInput"
+    
   >
 </template> 
 
 <script>
 export default {
-  name: 'myInput',
   props: {
     modelValue: [String, Number],
   },
   methods: {
     updateInput(event) {
-      this.$emit('update:modelValue', event.target.value)  
+      this.$emit('update:modelValue', event.target.value); 
     }
   }
 }
@@ -23,14 +23,20 @@ export default {
 
 <style scoped>
 .input {
-  /*
-  max-width: 374px;
-  */
-  margin-left: 16px;
-  font-size: 10px;
+  display: flex;
+  font-size: 30px;
   color: #3D82EB;
   border: none;
   outline: none;
+  /*
+  border: 1px solid orange;
+  */
+  margin: 0px;
+  overflow: hidden;
+  text-overflow: clip;
+  margin-right: 65px;
+ 
+  
+  
 }
-
 </style>

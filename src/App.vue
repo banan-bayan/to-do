@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <MyHead
-     @optionTasks="optionTasks"
+     @getSortedTasks="optionTasks"
     />
     <TaskList 
       :tasks="filteredTask"
@@ -25,7 +25,7 @@ export default {
         {id: 2, title: 'Workout for 30 miites at the gym', status: 'inProgress'},
         {id: 3, title: 'Buy groceries(milk, vegetables, fruits, fish)', status: 'inProgress'},
         {id: 4, title: 'Clean the house and backyard', status: 'inProgress'},
-        {id: 5, title: 'Take the car to the autoshop for an oil change', status: 'inProgress'}
+        {id: 5, title: 'Take the car to the autoshop for an oil change', status: 'inProgress'},
       ],
       selectedFilter: 'inProgress',
     }
@@ -33,33 +33,20 @@ export default {
   methods: {  
     optionTasks(param) { 
       this.selectedFilter = param;
-      console.log(this.selectedFilter)
     },
-   // completedTasks() {
-   // this.selectedFilter = 'completed'
-   // },
-   //     @optionTaskInProgress="progressTasks"
-   //     @optionTaskCompleted="completedTasks"
-   //     @optionTaskRemoved="removedTasks"
-    //removedTasks() {
-    //  this.selectedFilter = 'removed'
-    //},
-    //progressTasks() {
-    //  this.selectedFilter = 'inProgress'
-    //},
     createTask(task) {
       this.tasks.push(task);
     },
     completedTask(task) {
-      this.tasks = this.tasks.map(t => t.id === task.id ? {...task, status: 'completed'} : t)  
+      this.tasks = this.tasks.map(t => t.id === task.id ? {...task, status: 'completed'} : t);  
     },
     removeTask(task) {
-      this.tasks = this.tasks.map(t =>  t.id === task.id  ? { ...task, status: 'removed'} : t)
+      this.tasks = this.tasks.map(t =>  t.id === task.id  ? { ...task, status: 'removed'} : t);
     }, 
   },
   computed: {
     filteredTask() {
-      return this.tasks.filter(t => t.status === this.selectedFilter)
+      return this.tasks.filter(t => t.status === this.selectedFilter);
     }
   }
 }
@@ -73,11 +60,11 @@ export default {
   cursor: pointer;
 }
 .app {
-  width: 414px;
-  height: 289px;
-  font-size: 10px;
+  max-width: 2500px;
+  height: 867px;
+  z-index: 1;
+  font-size: 30px;
   font-family: 'Roboto', sans-serif;
-  margin-top: 15px;
-  margin-left: 15px;
+  margin: 15px 5px 0 5px;
 }
 </style>

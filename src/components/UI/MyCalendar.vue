@@ -35,41 +35,41 @@ export default {
 
 <style scoped>
 .box-calendar-day {
-  width: 17px;
-  height: 10px;
-  border: 1px solid #3D82EB;
-  border-radius: 0px 0px 3px 3px;
+  width: 51px;
+  height: 30px;
+  border: 3px solid #3D82EB;
+  border-radius: 0px 0px 9px 9px;
 }
 .box-calendar-month {
-  width: 17px;
-  height: 6px;
+  width: 51px;
+  height: 18px;
   background: #3D82EB;
-  border: 1px solid #3D82EB;
-  border-radius: 2px 2px 0px 0px;
+  border: 3px solid #3D82EB;
+  border-radius: 6px 6px 0px 0px;
 }
 .month-style {
-  width: 10px;
-  height: 4px;
+  width: 30px;
+  height: 12px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-size: 5px;
-  line-height: 6px;
+  font-size: 15px;
+  line-height: 18px;
   display: flex;
   align-items: center;
   text-align: center;
   color: #FFFFFF;
   margin: auto;
-  margin-top: 1px;
+  margin-top: 3px;
 }
 .day-style {
-  width: 9px;
-  height: 7px;
+  width: 27px;
+  height: 21px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-size: 7px;
-  line-height: 8px;
+  font-size: 21px;
+  line-height: 24px;
   text-align: center;
   color: #3D82EB;
   margin: auto;
