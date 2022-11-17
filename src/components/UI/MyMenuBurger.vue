@@ -4,7 +4,8 @@
     v-click-outside="onClickOutsideMenuBurger"
     class="menu-burger"
   >
-    <div>  
+    <div>
+      <div class="background-gray"></div>
       <button
         @click="buttonMenuCompleted"
         class="btn tasks-in-menu tasks-completed" 
@@ -55,7 +56,6 @@ export default {
   methods: {
     onClickOutsideMenuBurger() {
       this.$emit('update:show', false);
-      //this.buttonIsActive = !this.buttonIsActive;
     },
     buttonMenuCompleted() {
       this.buttonActiveCompleted = !this.buttonActiveCompleted;
@@ -80,17 +80,21 @@ export default {
 </script>
 
 <style scoped>
- 
+.background-gray {
+  background: rgba(0, 0, 0, 0.4);
+  height: 30px;
+  border-radius: 5px 5px 0px  0px;
+}
 .menu-burger {
     position: absolute;
-    right: 3px;
-    top: 30px;
+    right: 0px;
+    top: 0px;
     margin-left: auto;
     width: 171px;
-    height: 253px;
+    height: 213px;
     background: #FFFFFF;
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
-    border-radius: 5px 0px 5px 5px;
+    border-radius: 5px;
  }
 .tasks-in-menu {
     color: #C4C4C4;
@@ -101,74 +105,26 @@ export default {
     margin-left: auto;
     margin-right: auto; 
     transition: all 0.3s ease 0s;
-    margin-top: 30px;
-    font-weight: 600;    
+    position: relative;
+    z-index: 10;
 }
 .tasks-in-menu:hover {
   color: #4E4E4E;
-  font-weight: 500;
-  transition: all 0.2s ease 0s;
-  font-weight: 600;
 } 
- .btn .tasks-completed {
-    width: 39px;
-
-    /*
-    margin-top: 5px;
-    padding-top: 1px;
-    margin-bottom: 6px;
-    */
- }
- .btn .tasks-in-progress {
-    width: 41px;
-    /*
-    margin-top: 4px;
-    padding-top: 1px;
-    margin-bottom: 6px;
-    padding-bottom: 1px; 
-    */
- }
- .btn .tasks-removed {
-    width: 34px;
-    
-    /*
-    padding-top: 1px;
-    margin-top: 1px;
-    margin-bottom: 5px;
-    padding-bottom: 1px;
-    */
-    
- }
- /*
  .hr-in-menu {
-  
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid #ECECEC;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  
-  size: 1px;
-  
+  border: none;
+  border-top: 2px solid #ECECEC;
  }
- */
  .btn {
-    
     width: 171px;
     height: 60px;
     background: none;
     border: none;
-    /*
-    border: 1px solid darkmagenta;
+/*
+    border: 1px solid darkmagenta; 
     */
  }
- .buttons-in-menu-active:hover {
+ .buttons-in-menu-active:hover, .buttons-in-menu-active{
   color: #3D82EB;
-  font-weight: 600;
- }
- .buttons-in-menu-active {
-  color: #3D82EB;
-  font-weight: 600;
  }
 </style>

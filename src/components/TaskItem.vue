@@ -50,7 +50,6 @@ export default {
   align-items: center;
   justify-content: space-between;
   min-height: 50px;
-  margin: 0px 0px 0px 0px; 
   padding: 0px 0px 0px 15px;
   border-bottom: 0.4px solid rgba(202, 196, 196, 0.5);
   /*
@@ -67,7 +66,6 @@ export default {
   width: 1122px;
   margin: 0px 69px 0px 66px;
   */
-  margin: 0px 0px 0px 0px;
   box-shadow: 0 9px 9px 3px rgba(202, 196, 196, 0.7); 
   border-radius: 0 0 15px 15px;
 }

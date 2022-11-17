@@ -65,6 +65,6 @@ export default {
   z-index: 1;
   font-size: 30px;
   font-family: 'Roboto', sans-serif;
-  margin: 15px 5px 0 5px;
+  margin: 0;
 }
 </style>
