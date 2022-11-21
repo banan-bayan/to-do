@@ -38,6 +38,7 @@ export default {
     },
     createTask(task) {
       this.tasks.push(task);
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
     completedTask(task) {
       this.tasks = this.tasks.map(t => t.id === task.id ? {...task, status: 'completed'} : t);  
@@ -50,6 +51,10 @@ export default {
     filteredTask() {
       return this.tasks.filter(t => t.status === this.selectedFilter);
     }
+  },
+  mounted() {
+    const tasksStorage = localStorage.getItem('tasks');
+    this.tasks = JSON.parse(tasksStorage)
   }
 }
 </script>

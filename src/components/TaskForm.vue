@@ -42,8 +42,8 @@ export default {
       const newTask = {
         id: Date.now(),
         title: this.titleInput,
-        status: 'inProgress',
-      }  
+        status: 'inProgress', 
+      }
       this.$emit('create', newTask);  
       this.titleInput = '';
     }
