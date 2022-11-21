@@ -8,8 +8,7 @@
       @click="showMenuAndTransformButton"
       :class="{'btn-menu-active': buttonIsActive}"
     >
-    <div 
-      
+    <div
       class="menu__icon"
       :class="{'burger-active': burgerIsActive}"  
     >
@@ -39,13 +38,6 @@ export default {
     }
   },
   methods: {
-    /*
-    onClickOutsideTransformButton() {
-      this.buttonIsActive = false;
-    },
-
-       v-click-outside="onClickOutsideTransformButton"
-    */
     showMenuAndTransformButton() {
       this.menuVisible = true;
       this.burgerIsActive = !this.burgerIsActive;
@@ -63,12 +55,12 @@ export default {
   position: absolute;
   margin-left: auto;
   border: none;
-  /*
-  border: 1px solid purple;
-  */
   z-index: 5;
   top: 0px;
   right: -10px;
+  /*
+  border: 1px solid purple;
+  */
 }
 .btn-menu-active {
   width: 102%;
@@ -77,40 +69,37 @@ export default {
   position: absolute;
   margin-left: auto;
   border: none;
-  /*
-  border: 1px solid purple;
-  */
   z-index: 5;
   top: -1px;
   left: -1px;
   /*
+  border: 1px solid purple;
   top: -10px;
   left: -10px;
   */
 }
-  .v-enter-active {
-    transition: all 0.3s ease 0s;
-  }
-  .v-leave-active {
-    transition: all 0.3s ease 0s;
-  }
-  .v-enter-from,
-  .v-leave-to {
-    opacity: 0;
-  }
-  .head {
-    display: flex;
-    /*
-    border: 1px solid yellow;
-    */
-    padding: 15px 0px 15px 6px;
-    position: relative;
-  }
-  .today {
-    margin-left: 30px;
-    margin-right: 5px;
-    flex: 0 1 80%;
-  }
+.v-enter-active {
+  transition: all 0.3s ease 0s;
+}
+.v-leave-active {
+  transition: all 0.3s ease 0s;
+}
+.v-enter-from, .v-leave-to {
+  opacity: 0;
+}
+.head {
+  display: flex;
+  padding: 15px 0px 15px 6px;
+  position: relative;
+ /*
+   border: 1px solid yellow;
+ */   
+}
+.today {
+  margin-left: 30px;
+  margin-right: 5px;
+  flex: 0 1 80%;
+}
 .menu__icon {
   z-index: 5;
   padding: 5px;
@@ -121,9 +110,9 @@ export default {
   position: absolute;
   width: 50px;
   height: 16px;
-  /*
+/*
   border: 1px solid green;
- */
+*/
 }
 .menu__icon span, .menu__icon:before, .menu__icon:after {
   position: absolute;

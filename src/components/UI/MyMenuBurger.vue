@@ -86,45 +86,45 @@ export default {
   border-radius: 5px 5px 0px  0px;
 }
 .menu-burger {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    margin-left: auto;
-    width: 171px;
-    height: 213px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
- }
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  margin-left: auto;
+  width: 171px;
+  height: 213px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
 .tasks-in-menu {
-    color: #C4C4C4;
-    font-size: 24px;
-    line-height: 9px;
-    height: 9px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto; 
-    transition: all 0.3s ease 0s;
-    position: relative;
-    z-index: 10;
+  color: #C4C4C4;
+  font-size: 24px;
+  line-height: 9px;
+  height: 9px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; 
+  transition: all 0.3s ease 0s;
+  position: relative;
+  z-index: 10;
 }
 .tasks-in-menu:hover {
   color: #4E4E4E;
 } 
- .hr-in-menu {
+.hr-in-menu {
   border: none;
   border-top: 2px solid #ECECEC;
- }
- .btn {
-    width: 171px;
-    height: 60px;
-    background: none;
-    border: none;
+}
+.btn {
+  width: 171px;
+  height: 60px;
+  background: none;
+  border: none;
 /*
     border: 1px solid darkmagenta; 
-    */
- }
- .buttons-in-menu-active:hover, .buttons-in-menu-active{
+*/
+}
+.buttons-in-menu-active:hover, .buttons-in-menu-active{
   color: #3D82EB;
- }
+}
 </style>

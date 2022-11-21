@@ -4,7 +4,6 @@
     type="text" 
     :value="modelValue" 
     @input="updateInput"
-    
   >
 </template> 
 
@@ -28,15 +27,13 @@ export default {
   color: #3D82EB;
   border: none;
   outline: none;
-  /*
-  border: 1px solid orange;
-  */
+  width: 100%;
   margin: 0px;
   overflow: hidden;
   text-overflow: clip;
   margin-right: 65px;
- 
-  
-  
+/*
+  border: 1px solid orange;
+*/
 }
 </style>

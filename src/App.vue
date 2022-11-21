@@ -1,14 +1,16 @@
 <template>
   <div class="app">
-    <MyHead
-     @getSortedTasks="optionTasks"
-    />
+    <MyHead @getSortedTasks="optionTasks"/>
     <TaskList 
       :tasks="filteredTask"
       @remove="removeTask"
       @completed="completedTask"
+      :selectedFilter="selectedFilter"
     />
-    <TaskForm @create="createTask"/>
+    <TaskForm  
+      @create="createTask" 
+      :selectedFilter="selectedFilter"
+    />
   </div>
 </template>
 
@@ -17,7 +19,7 @@ import MyHead from "@/components/UI/MyHead.vue";
 import TaskList from "@/components/TaskList.vue";
 import TaskForm from "@/components/TaskForm.vue";
 export default {
-  components: {MyHead, TaskList, TaskForm,},
+  components: {MyHead, TaskList, TaskForm},
   data() {
     return {
       tasks: [

@@ -1,17 +1,10 @@
 <template>
-  <div class="task">
-    <button 
-      class="btn btn-complete"
-      @click="$emit('completed', task)"
-    >
-    </button>
-    <div class="task__title"> {{ task.title }} </div> 
-    <button  
-      class="btn btn-delete" 
-      @click="$emit('remove', task)"
-    > 
-      <IconDelete/>
-    </button> 
+  <div  class="task">
+    <button class="btn btn-complete" @click="$emit('completed', task)" v-if="selectedFilter==='inProgress'"></button>
+    <button class="btn-completed" v-if="selectedFilter==='completed'"></button>
+    <div class="task__title"> {{ task.title }} </div>
+    <button  class="btn btn-delete" @click="$emit('remove', task)" v-if="selectedFilter==='inProgress' || selectedFilter==='completed'"><IconDelete/></button>
+    <button  class="btn btn-deleted"  v-if="selectedFilter==='removed'"><IconDelete/></button>  
   </div> 
 </template>
 
@@ -23,28 +16,41 @@ export default {
     task: {
         type: Object,
         required: true,
+    },
+    selectedFilter: {
+      type: String,
+      
     }
   }
 }
 </script>
 
 <style scoped>
-
+.btn-completed  {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  border: 3px solid rgb(20, 248, 20);
+  background: none;
+}
+.btn-deleted {
+  margin-top: 0px;
+  margin-left: auto;
+  flex: 0 1 1%;
+  background: none;
+  border: none;
+}
 .task__title {
   overflow: hidden;
   text-overflow: clip;
-  /*
-  border: 1px solid green;
-  */
   margin-left: 10px;
   margin-right: 10px;
-  max-width: 970px;
+  width: 100%;
+   /*
+  border: 1px solid green;
+  */
 }
 .task {
-  /*
-  max-width: 1122px;
-  width: 1122px;
-  */
   flex: 0 1 80%;
   display: flex;
   align-items: center;
@@ -60,14 +66,11 @@ export default {
   transition: all 0.1s ease 0s; 
   display: flex;
   justify-content: flex-start;
-
-  /*
-    border-top: 0.4px solid rgba(202, 196, 196, 0.5);
-  width: 1122px;
-  margin: 0px 69px 0px 66px;
-  */
   box-shadow: 0 9px 9px 3px rgba(202, 196, 196, 0.7); 
   border-radius: 0 0 15px 15px;
+  /*
+    border-top: 0.4px solid pink;
+  */
 }
 .btn {
  background: none;
@@ -80,7 +83,6 @@ export default {
   /*
   border: 1px solid red;
   */
-  
 }
 .btn-complete{
   min-width: 36px;
