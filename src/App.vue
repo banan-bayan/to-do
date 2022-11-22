@@ -18,38 +18,43 @@
 import MyHead from "@/components/UI/MyHead.vue";
 import TaskList from "@/components/TaskList.vue";
 import TaskForm from "@/components/TaskForm.vue";
+import {STATUSES} from "@/Constants.js";
 export default {
-  components: {MyHead, TaskList, TaskForm},
+  components: {MyHead, TaskList, TaskForm,},
   data() {
     return {
       tasks: [
-        {id: 1, title: 'Build a modern To do app', status: 'inProgress'},
-        {id: 2, title: 'Workout for 30 miites at the gym', status: 'inProgress'},
-        {id: 3, title: 'Buy groceries(milk, vegetables, fruits, fish)', status: 'inProgress'},
-        {id: 4, title: 'Clean the house and backyard', status: 'inProgress'},
-        {id: 5, title: 'Take the car to the autoshop for an oil change', status: 'inProgress'},
+        {id: 1, title: 'Build a modern To do app', status: STATUSES.inProgress},
+        {id: 2, title: 'Workout for 30 miites at the gym', status: STATUSES.inProgress},
+        {id: 3, title: 'Buy groceries(milk, vegetables, fruits, fish)', status: STATUSES.inProgress},
+        {id: 4, title: 'Clean the house and backyard', status: STATUSES.inProgress},
+        {id: 5, title: 'Take the car to the autoshop for an oil change', status: STATUSES.inProgress},
       ],
-      selectedFilter: 'inProgress',
+      
+      selectedFilter: STATUSES.inProgress,
     }
   }, 
   methods: {  
     optionTasks(param) { 
       this.selectedFilter = param;
+      
     },
     createTask(task) {
       this.tasks.push(task);
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
     completedTask(task) {
-      this.tasks = this.tasks.map(t => t.id === task.id ? {...task, status: 'completed'} : t);  
+      this.tasks = this.tasks.map(t => t.id === task.id ? {...task, status: STATUSES.completed} : t);  
     },
     removeTask(task) {
-      this.tasks = this.tasks.map(t =>  t.id === task.id  ? { ...task, status: 'removed'} : t);
+      this.tasks = this.tasks.map(t =>  t.id === task.id  ? { ...task, status: STATUSES.removed} : t);
     }, 
   },
   computed: {
     filteredTask() {
+
       return this.tasks.filter(t => t.status === this.selectedFilter);
+      
     }
   },
   mounted() {

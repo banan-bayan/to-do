@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import {STATUSES} from '@/Constants';
 export default {
   data() {
     return {
@@ -61,19 +62,19 @@ export default {
       this.buttonActiveCompleted = !this.buttonActiveCompleted;
       this.buttonActiveInProgress = false;
       this.buttonActiveRemoved = false;
-      this.$emit('getSortedTasks','completed');
+      this.$emit('getSortedTasks', STATUSES.completed);
     },
     buttonMenuInProgress() {
       this.buttonActiveInProgress = !this.buttonActiveInProgress;
       this.buttonActiveCompleted = false;
       this.buttonActiveRemoved = false;
-      this.$emit('getSortedTasks','inProgress');
+      this.$emit('getSortedTasks', STATUSES.inProgress);
     },
     buttonMenuRemoved() {
       this.buttonActiveRemoved = !this.buttonActiveRemoved;
       this.buttonActiveInProgress = false;
       this.buttonActiveCompleted = false;
-      this.$emit('getSortedTasks','removed');
+      this.$emit('getSortedTasks', STATUSES.removed);
     },
   }
 }

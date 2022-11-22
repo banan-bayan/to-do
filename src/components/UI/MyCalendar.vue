@@ -1,7 +1,7 @@
 <template>
   <div class="container-calendar">
     <div class="box-calendar-month">
-      <div class="month-style"> {{ months[getMonthNow()] }} </div>
+      <div class="month-style"> {{ MONTHS[getMonthNow()] }} </div>
     </div>
     <div class="box-calendar-day">
       <div class="day-style"> {{ getDateNow() }} </div>
@@ -10,13 +10,11 @@
 </template>
 
 <script>
+import { MONTHS } from '@/Constants';
 export default {
   data() {
     return {
-        months: ['JAN','FEB','MAR','APR',
-                 'MAY','JUNE','JULY','AUG',
-                 'SEP','OCT','NOV','DEC',
-                ]
+      MONTHS
     }
   },
   methods: {

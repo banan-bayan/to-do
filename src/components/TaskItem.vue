@@ -1,17 +1,23 @@
 <template>
   <div  class="task">
-    <button class="btn btn-complete" @click="$emit('completed', task)" v-if="selectedFilter==='inProgress'"></button>
-    <button class="btn-completed" v-if="selectedFilter==='completed'"></button>
+    <button class="btn btn-complete" @click="$emit('completed', task)" v-if="selectedFilter===STATUSES.inProgress"></button>
+    <button class="btn-completed" v-if="selectedFilter===STATUSES.completed"></button>
     <div class="task__title"> {{ task.title }} </div>
-    <button  class="btn btn-delete" @click="$emit('remove', task)" v-if="selectedFilter==='inProgress' || selectedFilter==='completed'"><IconDelete/></button>
-    <button  class="btn btn-deleted"  v-if="selectedFilter==='removed'"><IconDelete/></button>  
+    <button  class="btn btn-delete" @click="$emit('remove', task)" v-if="selectedFilter===STATUSES.inProgress || selectedFilter===STATUSES.completed"><IconDelete/></button>
+    <button  class="btn btn-deleted"  v-if="selectedFilter===STATUSES.removed"><IconDelete/></button>  
   </div> 
 </template>
 
 <script>
+import { STATUSES } from "@/Constants";
 import IconDelete from "@/components/icons/IconDelete.vue";
 export default {
-  components: {IconDelete},
+  data() {
+    return {
+      STATUSES
+    }
+  },
+  components: {IconDelete, },
   props: {
     task: {
         type: Object,

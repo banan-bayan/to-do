@@ -9,11 +9,11 @@
       :disabled="titleInput.length < 9"
     >
       <IconCreate  
-        v-if="selectedFilter === 'inProgress'"
+        v-if="selectedFilter === STATUSES.inProgress"
       />
     </button>
     <myInput
-      v-if="selectedFilter === 'inProgress'"
+      v-if="selectedFilter === STATUSES.inProgress"
       v-model="titleInput"
       type="text" 
       placeholder="Create New Item"
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { STATUSES } from "@/Constants";
 import IconCreate from "@/components/icons/IconCreate.vue";
 import MyInput from "@/components/UI/MyInput.vue";
 export default {
@@ -33,8 +34,10 @@ export default {
     }
   },
   data() {
+    
     return {
       titleInput: '',
+      STATUSES
       }
     },
   methods: {
@@ -42,7 +45,7 @@ export default {
       const newTask = {
         id: Date.now(),
         title: this.titleInput,
-        status: 'inProgress', 
+        status: STATUSES.inProgress, 
       }
       this.$emit('create', newTask);  
       this.titleInput = '';

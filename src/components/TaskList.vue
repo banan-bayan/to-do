@@ -34,11 +34,11 @@ export default {
 .task-item {
   display: flex;
   justify-content: flex-start;
- }
+}
 .task-list-is-empty {
   font-weight: 600;
   font-size: 39px;
   margin: 7px 23px 0px 102px;
   padding: 7px 0px 0px 10px;
- }
+}
 </style>
