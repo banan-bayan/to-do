@@ -31,13 +31,14 @@ export default {
   props: {
     selectedFilter: {
       type: String,
-    }
+      required: true,
+    } 
   },
+  emits: ['create'],
   data() {
-    
     return {
       titleInput: '',
-      STATUSES
+      STATUSES,
       }
     },
   methods: {

@@ -29,9 +29,10 @@ export default {
     },
     selectedFilter: {
       type: String,
-      requered: true,
+      required: true,
     }
-  }
+  },
+  emits: ['completed', 'remove']
 }
 </script>
 

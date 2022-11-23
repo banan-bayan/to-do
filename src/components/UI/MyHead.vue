@@ -14,7 +14,7 @@
           class="menu__icon"
           :class="{'burger-active': burgerIsActive}"  
         >
-          <span/>
+          <span />
         </div>
       </button>
     </Transition>
@@ -32,6 +32,7 @@ import MyCalendar from "@/components/UI/MyCalendar.vue";
 import MyMenuBurger from "@/components/UI/MyMenuBurger.vue";
 export default {
   components: {MyMenuBurger, MyCalendar},
+  emits: ['getSortedTasks'],
   data() {
     return {
       menuVisible: false,

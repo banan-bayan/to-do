@@ -8,10 +8,14 @@
 </template> 
 
 <script>
-export default {
+export default { 
   props: {
-    modelValue: [String, Number],
+    modelValue: {
+      type: [String, Number],
+      required: true,
+    }
   },
+  emits: ['update:modelValue'],
   methods: {
     updateInput(event) {
       this.$emit('update:modelValue', event.target.value); 

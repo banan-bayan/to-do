@@ -32,17 +32,18 @@
 import { STATUSES } from "@/Constants";
 import IconDelete from "@/components/icons/IconDelete.vue";
 export default {
-  components: {IconDelete, },
+  components: {IconDelete},
   props: {
     task: {
-        type: Object,
-        required: true,
+      type: Object,
+      required: true,
     },
     selectedFilter: {
       type: String,
-      
+      required: true,
     }
   },
+  emits: ['completed','remove'],
   data() {
     return {
       STATUSES
