@@ -5,27 +5,27 @@
     class="menu-burger"
   >
     <div>
-      <div class="background-gray"></div>
+      <div class="background-gray" />
       <button
+        class="btn tasks-in-menu tasks-completed"
+        :class="{'buttons-in-menu-active': buttonActiveCompleted}" 
         @click="buttonMenuCompleted"
-        class="btn tasks-in-menu tasks-completed" 
-        :class="{'buttons-in-menu-active': buttonActiveCompleted}"
       >
         Completed
       </button>
       <hr class="hr-in-menu">
       <button
+        class="btn tasks-in-menu tasks-in-progress"
+        :class="{'buttons-in-menu-active': buttonActiveInProgress}" 
         @click="buttonMenuInProgress"
-        class="btn tasks-in-menu tasks-in-progress" 
-        :class="{'buttons-in-menu-active': buttonActiveInProgress}"
       >
         In Progress
       </button>
       <hr class="hr-in-menu">
       <button
+        class="btn tasks-in-menu tasks-removed"
+        :class="{'buttons-in-menu-active': buttonActiveRemoved}" 
         @click="buttonMenuRemoved"
-        class="btn tasks-in-menu tasks-removed" 
-        :class="{'buttons-in-menu-active': buttonActiveRemoved}"
       >
         Removed
       </button>
@@ -36,13 +36,6 @@
 <script>
 import {STATUSES} from '@/Constants';
 export default {
-  data() {
-    return {
-      buttonActiveCompleted: false,
-      buttonActiveInProgress: false,
-      buttonActiveRemoved: false,
-    }
-  },
   name: 'MyMenuBurger',
   props: {
     show: {
@@ -53,6 +46,13 @@ export default {
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      buttonActiveCompleted: false,
+      buttonActiveInProgress: false,
+      buttonActiveRemoved: false,
+    }
   },
   methods: {
     onClickOutsideMenuBurger() {

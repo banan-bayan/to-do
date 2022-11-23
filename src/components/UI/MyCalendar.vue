@@ -1,10 +1,14 @@
 <template>
   <div class="container-calendar">
     <div class="box-calendar-month">
-      <div class="month-style"> {{ MONTHS[getMonthNow()] }} </div>
+      <div class="month-style">
+        {{ MONTHS[getMonthNow()] }}
+      </div>
     </div>
     <div class="box-calendar-day">
-      <div class="day-style"> {{ getDateNow() }} </div>
+      <div class="day-style">
+        {{ getDateNow() }}
+      </div>
     </div>
   </div>
 </template>

@@ -1,12 +1,12 @@
 <template>
   <form 
-    @submit.prevent 
-    class="form"
+    class="form" 
+    @submit.prevent
   >
     <button 
       class="btn-create"
-      @click="createTask"
       :disabled="titleInput.length < 9"
+      @click="createTask"
     >
       <IconCreate  
         v-if="selectedFilter === STATUSES.inProgress"
@@ -17,7 +17,7 @@
       v-model="titleInput"
       type="text" 
       placeholder="Create New Item"
-      v-on:keypress.enter="createTask"
+      @keypress.enter="createTask"
     />
   </form> 
 </template>

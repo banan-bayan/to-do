@@ -1,26 +1,28 @@
 <template>
   <div class="head">
-    <MyCalendar/>
-    <h2 class="today">Today</h2>
+    <MyCalendar />
+    <h2 class="today">
+      Today
+    </h2>
     <Transition>
-    <button
-      class="btn-menu"
-      @click="showMenuAndTransformButton"
-      :class="{'btn-menu-active': buttonIsActive}"
-    >
-    <div
-      class="menu__icon"
-      :class="{'burger-active': burgerIsActive}"  
-    >
-      <span></span>
-    </div>
-  </button>
-</Transition>
+      <button
+        class="btn-menu"
+        :class="{'btn-menu-active': buttonIsActive}"
+        @click="showMenuAndTransformButton"
+      >
+        <div
+          class="menu__icon"
+          :class="{'burger-active': burgerIsActive}"  
+        >
+          <span/>
+        </div>
+      </button>
+    </Transition>
   </div>
   <Transition>
     <MyMenuBurger
-      @getSortedTasks="(param) => $emit('getSortedTasks', param)"
       v-model:show="menuVisible"
+      @getSortedTasks="(param) => $emit('getSortedTasks', param)"
     />
   </Transition>
 </template>

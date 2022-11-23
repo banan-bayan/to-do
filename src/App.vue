@@ -1,15 +1,15 @@
 <template>
   <div class="app">
-    <MyHead @getSortedTasks="optionTasks"/>
+    <MyHead @getSortedTasks="optionTasks" />
     <TaskList 
       :tasks="filteredTask"
+      :selectedFilter="selectedFilter"
       @remove="removeTask"
       @completed="completedTask"
-      :selectedFilter="selectedFilter"
     />
     <TaskForm  
-      @create="createTask" 
-      :selectedFilter="selectedFilter"
+      :selectedFilter="selectedFilter" 
+      @create="createTask"
     />
   </div>
 </template>
@@ -33,6 +33,17 @@ export default {
       
       selectedFilter: STATUSES.inProgress,
     }
+  },
+  computed: {
+    filteredTask() {
+
+      return this.tasks.filter(t => t.status === this.selectedFilter);
+      
+    }
+  },
+  mounted() {
+    const tasksStorage = localStorage.getItem('tasks');
+    this.tasks = JSON.parse(tasksStorage)
   }, 
   methods: {  
     optionTasks(param) { 
@@ -49,17 +60,6 @@ export default {
     removeTask(task) {
       this.tasks = this.tasks.map(t =>  t.id === task.id  ? { ...task, status: STATUSES.removed} : t);
     }, 
-  },
-  computed: {
-    filteredTask() {
-
-      return this.tasks.filter(t => t.status === this.selectedFilter);
-      
-    }
-  },
-  mounted() {
-    const tasksStorage = localStorage.getItem('tasks');
-    this.tasks = JSON.parse(tasksStorage)
   }
 }
 </script>

@@ -1,16 +1,21 @@
 <template>
   <div v-if="tasks.length > 0">
     <TaskItem 
-      class="task-item" 
       v-for="task in tasks" 
       :key="task.id" 
+      class="task-item" 
       :task="task"
+      :selectedFilter="selectedFilter"
       @remove="$emit('remove', task)"
       @completed="$emit('completed', task)"
-      :selectedFilter="selectedFilter"
     /> 
   </div>
-  <p class="task-list-is-empty" v-else> Task list is currently empty </p>      
+  <p
+    v-else
+    class="task-list-is-empty"
+  >
+    Task list is currently empty
+  </p>      
 </template>
 
 <script>
