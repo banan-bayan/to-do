@@ -5,7 +5,7 @@
   >
     <button 
       class="btn-create"
-      :disabled="titleInput.length < 9"
+      :disabled="titleInput.length < minSignForCreateTask"
       @click="createTask"
     >
       <IconCreate  
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { STATUSES } from "@/Constants";
+import { STATUSES, minSignForCreateTask}  from "@/Constants";
 import IconCreate from "@/components/icons/IconCreate.vue";
 import MyInput from "@/components/UI/MyInput.vue";
 export default {
@@ -39,6 +39,7 @@ export default {
     return {
       titleInput: '',
       STATUSES,
+      minSignForCreateTask,
       }
     },
   methods: {
@@ -62,12 +63,7 @@ form {
   flex-direction: row;
   align-items: center;
   min-height: 64px;
-  margin: 0px 0px 0px 0px; 
   padding: 0px 0px 0px 15px;
-  /*
-  padding: 24px 0px 8px 0px;
-  border: 1px solid purple;
-  */ 
 }
 .btn-create {
   align-self: flex-end;
@@ -76,8 +72,5 @@ form {
   border: none;
   margin-bottom: 13px;
   margin-right: 8px;
-  /*
-  border: 1px solid darkgreen;
-  */ 
 }
 </style>

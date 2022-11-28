@@ -6,6 +6,7 @@
       :selectedFilter="selectedFilter"
       @remove="removeTask"
       @completed="completedTask"
+      @delete="deleteTask"
     />
     <TaskForm  
       :selectedFilter="selectedFilter" 
@@ -25,7 +26,7 @@ export default {
     return {
       tasks: [
         {id: 1, title: 'Build a modern To do app', status: STATUSES.inProgress},
-        {id: 2, title: 'Workout for 30 miites at the gym', status: STATUSES.inProgress},
+        {id: 2, title: 'Workout for 30 minutes at the gym', status: STATUSES.inProgress},
         {id: 3, title: 'Buy groceries(milk, vegetables, fruits, fish)', status: STATUSES.inProgress},
         {id: 4, title: 'Clean the house and backyard', status: STATUSES.inProgress},
         {id: 5, title: 'Take the car to the autoshop for an oil change', status: STATUSES.inProgress},
@@ -41,14 +42,18 @@ export default {
       
     }
   },
-  mounted() {
-    const tasksStorage = localStorage.getItem('tasks');
-    this.tasks = JSON.parse(tasksStorage)
-  }, 
+  //mounted() {
+  //  const tasksStorage = localStorage.getItem('tasks');
+  //  this.tasks = JSON.parse(tasksStorage)
+  //}, 
   methods: {  
     optionTasks(param) { 
       this.selectedFilter = param;
-      
+    },
+    deleteTask(removedTask) {
+     for (let key in removedTask) {
+       delete removedTask[key]
+      }
     },
     createTask(task) {
       this.tasks.push(task);

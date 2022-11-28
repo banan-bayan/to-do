@@ -8,6 +8,7 @@
       :selectedFilter="selectedFilter"
       @remove="$emit('remove', task)"
       @completed="$emit('completed', task)"
+      @delete="$emit('delete', task)"
     /> 
   </div>
   <p
@@ -32,7 +33,7 @@ export default {
       required: true,
     }
   },
-  emits: ['completed', 'remove']
+  emits: ['completed', 'remove', 'delete']
 }
 </script>
 

@@ -122,9 +122,6 @@ export default {
   height: 60px;
   background: none;
   border: none;
-/*
-    border: 1px solid darkmagenta; 
-*/
 }
 .buttons-in-menu-active:hover, .buttons-in-menu-active{
   color: #3D82EB;

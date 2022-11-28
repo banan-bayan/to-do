@@ -14,14 +14,15 @@
     </div>
     <button
       v-if="selectedFilter===STATUSES.inProgress || selectedFilter===STATUSES.completed"
-      class="btn btn-delete"
-      @click="$emit('remove', task)"
+      class="btn btn-remove"
+      @click.stop="$emit('remove', task)"
     >
       <IconDelete />
     </button>
     <button
       v-if="selectedFilter===STATUSES.removed"
-      class="btn btn-deleted"
+      class="btn btn-delete"
+      @click.stop="$emit('delete', task)"
     >
       <IconDelete />
     </button>  
@@ -41,9 +42,10 @@ export default {
     selectedFilter: {
       type: String,
       required: true,
+      
     }
   },
-  emits: ['completed','remove'],
+  emits: ['completed','remove', 'delete'],
   data() {
     return {
       STATUSES
@@ -60,7 +62,7 @@ export default {
   border: 3px solid rgb(20, 248, 20);
   background: none;
 }
-.btn-deleted {
+.btn-delete {
   margin-top: 0px;
   margin-left: auto;
   flex: 0 1 1%;
@@ -73,9 +75,6 @@ export default {
   margin-left: 10px;
   margin-right: 10px;
   width: 100%;
-   /*
-  border: 1px solid green;
-  */
 }
 .task {
   flex: 0 1 80%;
@@ -85,9 +84,6 @@ export default {
   min-height: 50px;
   padding: 0px 0px 0px 15px;
   border-bottom: 0.4px solid rgba(202, 196, 196, 0.5);
-  /*
-  border: 1px solid darkred;
-  */
 }
 .task:hover {
   transition: all 0.1s ease 0s; 
@@ -95,30 +91,21 @@ export default {
   justify-content: flex-start;
   box-shadow: 0 9px 9px 3px rgba(202, 196, 196, 0.7); 
   border-radius: 0 0 15px 15px;
-  /*
-    border-top: 0.4px solid pink;
-  */
 }
 .btn {
  background: none;
  border: none;
 }
-.btn-delete {
+.btn-remove {
   margin-top: 0px;
   margin-left: auto;
   flex: 0 1 1%;
-  /*
-  border: 1px solid red;
-  */
 }
 .btn-complete{
   min-width: 36px;
   min-height: 36px;
   border-radius: 50%;
   border: 3px solid #CBCBCB;
-  /*
-  border: 1px solid red;
-  */
  }
  .btn-complete:hover {
   background: #4E4E4E;

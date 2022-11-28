@@ -61,9 +61,6 @@ export default {
   z-index: 5;
   top: 0px;
   right: -10px;
-  /*
-  border: 1px solid purple;
-  */
 }
 .btn-menu-active {
   width: 102%;
@@ -75,11 +72,6 @@ export default {
   z-index: 5;
   top: -1px;
   left: -1px;
-  /*
-  border: 1px solid purple;
-  top: -10px;
-  left: -10px;
-  */
 }
 .v-enter-active {
   transition: all 0.3s ease 0s;
@@ -93,10 +85,7 @@ export default {
 .head {
   display: flex;
   padding: 15px 0px 15px 6px;
-  position: relative;
- /*
-   border: 1px solid yellow;
- */   
+  position: relative;  
 }
 .today {
   margin-left: 30px;
@@ -113,9 +102,6 @@ export default {
   position: absolute;
   width: 50px;
   height: 16px;
-/*
-  border: 1px solid green;
-*/
 }
 .menu__icon span, .menu__icon:before, .menu__icon:after {
   position: absolute;

@@ -36,8 +36,5 @@ export default {
   overflow: hidden;
   text-overflow: clip;
   margin-right: 65px;
-/*
-  border: 1px solid orange;
-*/
 }
 </style>

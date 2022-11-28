@@ -1,4 +1,4 @@
-export  const  STATUSES =  {  
+export const  STATUSES =  {  
    completed: 'completed',
    inProgress: 'inProgress',
    removed: 'removed',
@@ -8,5 +8,6 @@ export const MONTHS = [
   'MAY','JUNE','JULY','AUG',
   'SEP','OCT','NOV','DEC',
 ]
+export const minSignForCreateTask = 9;
 
 
