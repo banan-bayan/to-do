@@ -9,11 +9,11 @@
       @click="createTask"
     >
       <IconCreate  
-        v-if="selectedFilter === STATUSES.inProgress"
+        v-if="selectedFilter===STATUSES.inProgress"
       />
     </button>
     <myInput
-      v-if="selectedFilter === STATUSES.inProgress"
+      v-if="selectedFilter===STATUSES.inProgress"
       v-model="titleInput"
       type="text" 
       placeholder="Create New Item"
@@ -40,8 +40,8 @@ export default {
       titleInput: '',
       STATUSES,
       minSignForCreateTask,
-      }
-    },
+    }
+  },
   methods: {
     createTask() {
       const newTask = {

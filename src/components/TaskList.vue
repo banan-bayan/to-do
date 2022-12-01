@@ -1,6 +1,6 @@
 <template>
   <div v-if="tasks.length > 0">
-    <TaskItem 
+    <TaskItem  
       v-for="task in tasks" 
       :key="task.id" 
       class="task-item" 

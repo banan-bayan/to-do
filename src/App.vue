@@ -31,22 +31,15 @@ export default {
         {id: 4, title: 'Clean the house and backyard', status: STATUSES.inProgress},
         {id: 5, title: 'Take the car to the autoshop for an oil change', status: STATUSES.inProgress},
       ],
-      
       selectedFilter: STATUSES.inProgress,
     }
   },
   computed: {
-    filteredTask() {
-
-      return this.tasks.filter(t => t.status === this.selectedFilter);
-      
+    filteredTask() { 
+     return this.tasks.filter(t => t.status === this.selectedFilter);
     }
   },
-  //mounted() {
-  //  const tasksStorage = localStorage.getItem('tasks');
-  //  this.tasks = JSON.parse(tasksStorage)
-  //}, 
-  methods: {  
+  methods: { 
     optionTasks(param) { 
       this.selectedFilter = param;
     },
@@ -57,7 +50,6 @@ export default {
     },
     createTask(task) {
       this.tasks.push(task);
-      localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
     completedTask(task) {
       this.tasks = this.tasks.map(t => t.id === task.id ? {...task, status: STATUSES.completed} : t);  

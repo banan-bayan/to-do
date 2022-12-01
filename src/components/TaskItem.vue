@@ -37,12 +37,11 @@ export default {
   props: {
     task: {
       type: Object,
-      required: true,
+      required: true
     },
     selectedFilter: {
       type: String,
-      required: true,
-      
+      required: true 
     }
   },
   emits: ['completed','remove', 'delete'],
